@@ -1,26 +1,12 @@
-import { useState, useEffect } from "react";
-
-function FetchData() {
-  const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then(res => res.json())
-      .then(data => setUser(data));
-  }, []);
-
-  return (
-    <div>
-      {user.map(item => (
-        <p key={item.id}>{item.name}{item.email}</p>
-      ))}
-    </div>
-  );
-}
+import React from "react";
+import BookStore from "./BookStore";
+import "./App.css";
 
 function App() {
   return (
-    <FetchData />
+    <div className="app-container">
+      <BookStore />
+    </div>
   );
 }
 
